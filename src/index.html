@@ -13,7 +13,7 @@
 <div class="main main-card">
     <div class="mdc-card">
         <div class="image-profile horizontal_center">
-            <img src="./src/assets/wait.gif" alt="">
+            <img src="../src/assets/wait.gif" alt="">
         </div>
         <div class="user-information">
             <div class="text-information"></div>
@@ -22,7 +22,7 @@
     </div>
     <div class="icons">
         <ul class="values_list horizontal_center">
-            <li class="material-symbols-outlined person" data-title="Hi, My name is" data-value="Stacey Fuller"></li>
+            <li class="material-symbols-outlined person active" data-title="Hi, My name is" data-value="Stacey Fuller"></li>
             <li class="material-symbols-outlined email" data-title="My email address is" data-value="stacey.fuller@example.com"></li>
             <li class="material-symbols-outlined date" data-title="My birthday is" data-value="7/1/1946" ></li>
             <li class="material-symbols-outlined location" data-title="My address is" data-value="7723 Adams St"></li>
@@ -34,15 +34,15 @@
 <section class="new_user horizontal_center">
     <h2>RandomApi</h2>
     <p>Create a new user!</p>
-    <button class="mdc-button mdc-button--outlined" id="createUser" onclick="newUser()">
+    <button class="mdc-button mdc-button--outlined" id="createUser" onclick="newUser();">
         <span class="mdc-button__ripple"></span>
         <span class="mdc-button__label">Create User</span>
     </button>
 </section>
+<div id="skm_LockPane" class="LockOn"></div>
 <div id="myFormer" class="former"></div>
 <div id="loader" class="loader">
     <div class="lds-ellipsis horizontal_center"><div></div><div></div><div></div><div></div></div>
-</div>
 </div>
 <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 <script src="../src/index.js"></script>

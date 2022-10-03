@@ -9,20 +9,20 @@ function newUser() {
     fetch('https://randomuser.me/api/')
         .then(response => response.json())
         .then(function (data) {
-            const user = data.results[0];
-            const imageSrc = `<img id="image-profile" src="${user.picture.large}" alt="">`;
+            const userData = data.results[0];
+            const imageSrc = `<img id="image-profile" src="${userData.picture.large}" alt="">`;
             const text = 'Hi, My name is';
-            const name = `${user.name.title} ${user.name.first} ${user.name.last}`;
+            const name = `${userData.name.title} ${userData.name.first} ${userData.name.last}`;
 
             icons.innerHTML = `
                 <div class="icons">
                     <ul class="values_list horizontal_center">
-                        <li class="material-symbols-outlined person " data-title="Hi, My name is" data-value="${user.name.title} ${user.name.first} ${user.name.last}"></li>
-                        <li class="material-symbols-outlined email " data-title="My email address is" data-value="${user.email}"></li>
-                        <li class="material-symbols-outlined date " data-title="My birthday is" data-value="${user.dob.date.substr(0,10)}" ></li>
-                        <li class="material-symbols-outlined location " data-title="My address is" data-value="${user.location.country}"></li>
-                        <li class="material-symbols-outlined phone " data-title="My phone number is" data-value="${user.phone}"></li>
-                        <li class="material-symbols-outlined password " data-title="My password is" data-value="${user.login.password}"></li>
+                        <li class="material-symbols-outlined person active" data-title="Hi, My name is" data-value="${userData.name.title} ${userData.name.first} ${userData.name.last}"></li>
+                        <li class="material-symbols-outlined email " data-title="My email address is" data-value="${userData.email}"></li>
+                        <li class="material-symbols-outlined date " data-title="My birthday is" data-value="${userData.dob.date.substr(0,10)}" ></li>
+                        <li class="material-symbols-outlined location " data-title="My address is" data-value="${userData.location.country}"></li>
+                        <li class="material-symbols-outlined phone " data-title="My phone number is" data-value="${userData.phone}"></li>
+                        <li class="material-symbols-outlined password " data-title="My password is" data-value="${userData.login.password}"></li>
                     </ul>
                 <div/>`;
             image.innerHTML = imageSrc;
@@ -41,22 +41,26 @@ function newUser() {
                     title_information.innerHTML = data_title;
                     text_ins.innerHTML = data_value;
 
-                    let active = document.querySelectorAll('.active');
+                    let activeClass = document.querySelectorAll('.active');
 
-                    active.forEach(function (active) {
-                        active.className = active.className.replace('active', '');
+                    activeClass.forEach(function (active_) {
+                        active_.className = active_.className.replace('active', '');
                     });
                     item.className += 'active';
                 })
             });
             let loader = document.getElementById('loader');
+            let lock = document.getElementById('skm_LockPane');
 
+            lock.style.display = 'none';
             loader.style.display = 'none';
             former.style.display = 'none';
         })
-        .catch(err => newUser() );
+        .catch(error => newUser());
     let loader = document.getElementById('loader');
+    let lock = document.getElementById('skm_LockPane');
 
+    lock.style.display = 'block';
     loader.style.display = 'block';
     former.style.display = 'block';
 }
