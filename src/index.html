@@ -9,6 +9,9 @@
 <body>
 <header>
     <h1>Random User Generator</h1>
+    <div id="loader" class="loader">
+        <div class="lds-ellipsis "><div></div><div></div><div></div><div></div></div>
+    </div>
 </header>
 <div class="main main-card">
     <div class="mdc-card">
@@ -41,8 +44,8 @@
 </section>
 <div id="skm_LockPane" class="LockOn"></div>
 <div id="myFormer" class="former"></div>
-<div id="loader" class="loader">
-    <div class="lds-ellipsis horizontal_center"><div></div><div></div><div></div><div></div></div>
+<div class="disconnect" id="disconnect">
+    <div class="disconnect-text">Internet error</div>
 </div>
 <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
 <script src="../src/index.js"></script>

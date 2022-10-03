@@ -5,10 +5,13 @@ const title_information_ = document.querySelector('.text-information');
 const text_information_ = document.querySelector('.text_information');
 const former = document.getElementById('myFormer');
 
-function newUser() {
-    fetch('https://randomuser.me/api/')
+async function newUser() {
+    let controller = new AbortController();
+
+    setTimeout(() => controller.abort(), 1000);
+    fetch('https://randomuser.me/api/', {signal: controller.signal})
         .then(response => response.json())
-        .then(function (data) {
+        .then(async function (data) {
             const userData = data.results[0];
             const imageSrc = `<img id="image-profile" src="${userData.picture.large}" alt="">`;
             const text = 'Hi, My name is';
@@ -19,12 +22,13 @@ function newUser() {
                     <ul class="values_list horizontal_center">
                         <li class="material-symbols-outlined person active" data-title="Hi, My name is" data-value="${userData.name.title} ${userData.name.first} ${userData.name.last}"></li>
                         <li class="material-symbols-outlined email " data-title="My email address is" data-value="${userData.email}"></li>
-                        <li class="material-symbols-outlined date " data-title="My birthday is" data-value="${userData.dob.date.substr(0,10)}" ></li>
+                        <li class="material-symbols-outlined date " data-title="My birthday is" data-value="${userData.dob.date.substr(0, 10)}" ></li>
                         <li class="material-symbols-outlined location " data-title="My address is" data-value="${userData.location.country}"></li>
                         <li class="material-symbols-outlined phone " data-title="My phone number is" data-value="${userData.phone}"></li>
                         <li class="material-symbols-outlined password " data-title="My password is" data-value="${userData.login.password}"></li>
                     </ul>
                 <div/>`;
+
             image.innerHTML = imageSrc;
             title_information_.innerHTML = text;
             text_ins_.innerHTML = name;
@@ -51,13 +55,25 @@ function newUser() {
             });
             let loader = document.getElementById('loader');
             let lock = document.getElementById('skm_LockPane');
+            let disconnect = document.getElementById('disconnect');
 
-            lock.style.display = 'none';
+
             loader.style.display = 'none';
+            disconnect.style.display ='none';
+            lock.style.display = 'none';
             former.style.display = 'none';
+
         })
-        .catch(error => newUser());
+        .catch(function (e){
+            if (e.name === 'AbortError') {
+                newUser();
+            } else {
+                disconnect.style.display ='block';
+                throw e;
+            }
+        });
     let loader = document.getElementById('loader');
+    let disconnect = document.getElementById('disconnect');
     let lock = document.getElementById('skm_LockPane');
 
     lock.style.display = 'block';
@@ -65,21 +81,3 @@ function newUser() {
     former.style.display = 'block';
 }
 newUser();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
