@@ -101,7 +101,7 @@ header h1 {
     float: left;
 }
 
-.material-symbols-outlined{
+.material-symbols-outlined {
     display: block;
     width: 40px;
     height: 48px;
@@ -117,7 +117,7 @@ header h1 {
     transition: all .3s ease-in-out;
 }
 
-.person:hover, .person.active{
+.person:hover, .person.active {
     background-position: 0 -96px;
 }
 
@@ -126,7 +126,7 @@ header h1 {
     transition: all .3s ease-in-out;
 }
 
-.email:hover, .email.active{
+.email:hover, .email.active {
     background-position: -68px -96px;
 }
 
@@ -135,7 +135,7 @@ header h1 {
     transition: all .3s ease-in-out;
 }
 
-.date:hover, .date.active{
+.date:hover, .date.active {
     background-position: -136px -96px;
 }
 
@@ -153,7 +153,7 @@ header h1 {
     transition: all .3s ease-in-out;
 }
 
-.phone:hover, .phone.active{
+.phone:hover, .phone.active {
     background-position: -274px -96px;
 }
 
@@ -162,11 +162,11 @@ header h1 {
     transition: all .3s ease-in-out;
 }
 
-.password:hover, .password.active{
+.password:hover, .password.active {
     background-position: -338px -96px;
 }
 
-.info-icons .profile-info .material-icons{
+.info-icons .profile-info .material-icons {
     margin-right: 0.5rem;
     color: gray;
 }
@@ -231,6 +231,7 @@ p {
     width: 80px;
     height: 80px;
 }
+
 .lds-ellipsis div {
     position: absolute;
     top: 33px;
@@ -240,22 +241,27 @@ p {
     background: yellow;
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
+
 .lds-ellipsis div:nth-child(1) {
     left: 8px;
     animation: lds-ellipsis1 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(2) {
     left: 8px;
     animation: lds-ellipsis2 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(3) {
     left: 32px;
     animation: lds-ellipsis2 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(4) {
     left: 56px;
     animation: lds-ellipsis3 0.6s infinite;
 }
+
 @keyframes lds-ellipsis1 {
     0% {
         transform: scale(0);
@@ -264,6 +270,7 @@ p {
         transform: scale(1);
     }
 }
+
 @keyframes lds-ellipsis3 {
     0% {
         transform: scale(1);
@@ -272,6 +279,7 @@ p {
         transform: scale(0);
     }
 }
+
 @keyframes lds-ellipsis2 {
     0% {
         transform: translate(0, 0);
