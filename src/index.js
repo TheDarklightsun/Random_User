@@ -5,7 +5,7 @@ const title_information_ = document.querySelector('.text-information');
 const text_information_ = document.querySelector('.text_information');
 const former = document.getElementById('myFormer');
 
-async function newUser() {
+    function newUser() {
     let controller = new AbortController();
 
     setTimeout(() => controller.abort(), 1000);
@@ -57,7 +57,6 @@ async function newUser() {
             let lock = document.getElementById('skm_LockPane');
             let disconnect = document.getElementById('disconnect');
 
-
             loader.style.display = 'none';
             disconnect.style.display ='none';
             lock.style.display = 'none';
@@ -66,7 +65,7 @@ async function newUser() {
         })
         .catch(function (e){
             if (e.name === 'AbortError') {
-                newUser();
+                disconnect.style.display ='block';
             } else {
                 disconnect.style.display ='block';
                 throw e;
