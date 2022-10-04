@@ -61,9 +61,8 @@ const former = document.getElementById('myFormer');
             disconnect.style.display ='none';
             lock.style.display = 'none';
             former.style.display = 'none';
-
         })
-        .catch(function (e){
+        .catch(function (e) {
             if (e.name === 'AbortError') {
                 disconnect.style.display ='block';
             } else {
